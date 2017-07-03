@@ -16,8 +16,8 @@ quiet = args.q
 # Enter your Google Maps API key below:
 apiKey=""
 if not apiKey:
-    print "Enter your API key for traffic data!"
-    exit(1)
+  print "Enter your API key for traffic data!"
+  exit(1)
 
 # Try to grab realtime traffic from Google:
 params = urllib.urlencode(
@@ -32,14 +32,14 @@ url = "https://maps.googleapis.com/maps/api/directions/json?%s" % params
 timestamp = int(time.time()) # capture when the request is made
 
 try:
-    response = urllib.urlopen(url)
+  response = urllib.urlopen(url)
 except IOError, e:
-    if not quiet:
-      print e
-    exit(1)
+  if not quiet:
+    print e
+  exit(1)
 
 if response.getcode() == 200:
-    data = json.loads(response.read())
+  data = json.loads(response.read())
 else:
   if not quiet:
     print "Error %s" % response.getcode()
@@ -47,17 +47,17 @@ else:
 
 # Process response data
 if 'error_message' in data:
-    if not quiet:
-        print data['error_message']
-    exit(1)
+  if not quiet:
+    print data['error_message']
+  exit(1)
 
 if not 'routes' in data or len(data['routes']) < 1:
-    if not quiet:
-        print "Route data not returned. Check locations?"
-    exit(1)
+  if not quiet:
+    print "Route data not returned. Check locations?"
+  exit(1)
 elif 'duration_in_traffic' in data['routes'][0]['legs'][0]:
-    print "%s,%s" % (timestamp, data['routes'][0]['legs'][0]['duration_in_traffic']['value'])
+  print "%s,%s" % (timestamp, data['routes'][0]['legs'][0]['duration_in_traffic']['value'])
 else:
-    if not quiet:
-      print "Traffic data not returned"
-    exit(1)
+  if not quiet:
+    print "Traffic data not returned"
+  exit(1)
