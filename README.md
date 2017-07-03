@@ -17,6 +17,10 @@ Example crontab:
 
 ```*/10 * * * * $HOME/bin/travelTime.py -q "Origin" "Destination" >> $HOME/data/origin-destination.csv```
 
+CSV header:
+
+```Timestamp,Duration(s)```
+
 I recommend you run through the interactive notebook to test out your origin/destination combinations before setting up the crontab.
 
 ## Analyzing data
