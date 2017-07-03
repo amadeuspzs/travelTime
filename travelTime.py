@@ -35,15 +35,15 @@ try:
     response = urllib.urlopen(url)
 except IOError, e:
     if not quiet:
-    	print e
+      print e
     exit(1)
 
 if response.getcode() == 200:
     data = json.loads(response.read())
 else:
-	if not quiet:
-		print "Error %s" % response.getcode()
-	exit(1)
+  if not quiet:
+    print "Error %s" % response.getcode()
+  exit(1)
 
 # Process response data
 if 'error_message' in data:
@@ -59,5 +59,5 @@ elif 'duration_in_traffic' in data['routes'][0]['legs'][0]:
     print "%s,%s" % (timestamp, data['routes'][0]['legs'][0]['duration_in_traffic']['value'])
 else:
     if not quiet:
-    	print "Traffic data not returned"
+      print "Traffic data not returned"
     exit(1)
