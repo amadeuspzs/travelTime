@@ -55,9 +55,9 @@ if not 'routes' in data or len(data['routes']) < 1:
   if not quiet:
     print "Route data not returned. Check locations?"
   exit(1)
-elif 'duration_in_traffic' in data['routes'][0]['legs'][0]:
-  print "%s,%s" % (timestamp, data['routes'][0]['legs'][0]['duration_in_traffic']['value'])
-else:
+elif not 'duration_in_traffic' in data['routes'][0]['legs'][0]:
   if not quiet:
     print "Traffic data not returned"
   exit(1)
+else:
+  print "%s,%s" % (timestamp, data['routes'][0]['legs'][0]['duration_in_traffic']['value'])
