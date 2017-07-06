@@ -31,6 +31,18 @@ Captured data examples are in the `data/` folder.
 
 * [analysis.ipynb](analysis.ipynb) is an interactive jupyter notebook to analyse data (ongoing work)
 
+Objectives:
+
+- [X] Week-by-week visualization
+- [X] Long weekend visualization
+- [X] Peak/valley detection
+- [ ] Peak/valley overlay
+- [ ] Average over weeks
+- [ ] Prediction
+	- Given a day of week and time of day, traffic will be X
+- [ ] Prescription
+	- You should wait 2.5 hours and leave at X to minimize traffic
+
 ## Contributing
 
 Python is not my go-to language - any refactoring/improvements welcome via Issues or PRs.
