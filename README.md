@@ -30,11 +30,12 @@ I recommend you run through the interactive notebook to test out your origin/des
 Captured data examples are in the `data/` folder. 
 
 * [analysis.ipynb](analysis.ipynb) is an interactive jupyter notebook to analyse data (ongoing work)
-
+* [analysis-pandas.ipynb](analysis-pandas.ipynb) is a pandas version of above
 Objectives:
 
 - [X] Week-by-week visualization
 - [X] Long weekend visualization
+- [ ] Day by Day overlap
 - [X] Peak/valley detection
 - [ ] Peak/valley overlay
 - [ ] Average over weeks
